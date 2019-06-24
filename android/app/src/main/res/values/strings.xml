@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PusherTest</string>
+    <string name="auth_endpoint">http://XXXXXXXXXXXXX/pusher/auth</string>
+    <string name="pusher_apikey">XXXXXXXXXXXXXXXXXXX</string>
+    <string name="channel_name">private-web-channel</string>
+    <string name="android_event">client-android</string>
+    <string name="web_event">client-web</string>
+</resources>

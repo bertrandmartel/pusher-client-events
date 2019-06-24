@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+  .root {
+    margin-left: 30px;
+  }
+  #messages {
+    margin-top: 30px;
+  }
+  </style>
+  <script>
+    const channelName = 'private-web-channel';
+    const androidEvent = 'client-android';
+    const webEvent = 'client-web';
+    const pusherApiKey = 'XXXXXXXXXXXXXXXXX'; //TODO: change this !
+
+    Pusher.logToConsole = true;
+    var pusher = new Pusher(pusherApiKey, {
+      authEndpoint: '/pusher/auth',
+      cluster: 'eu',
+      forceTLS: true
+    });
+    var channel = pusher.subscribe(channelName);
+    channel.bind(webEvent, function(data) {
+      document.getElementById("messages").innerHTML += "<div>[RECEIVED] [" + webEvent  + "] received " + JSON.stringify(data) + "</div>";
+    });
+    function onActionClick(){
+      var data = { data: "hello from web app" }
+      var triggered = channel.trigger(androidEvent, data);
+      var status = triggered ? "OK" : "FAIL";
+      document.getElementById("messages").innerHTML += "<div>[SENT] [" + androidEvent  + "] send message " + JSON.stringify(data) + "</div>";
+    }
+  </script>
+</head>
+<body>
+  <div class="root">
+    <h1>Pusher Test</h1>
+    <button class="waves-effect waves-light btn" onclick="onActionClick()">send from web page</button>
+    <div id="messages">
+    </div>
+  </div> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+
+  </script>
+</body>
