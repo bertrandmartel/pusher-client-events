@@ -19,4 +19,11 @@ Also check "Enable client events" :
 Change the configuration under the following path :
 
 * Android : [strings.xml](https://github.com/bertrandmartel/pusher-client-events/blob/master/android/app/src/main/res/values/strings.xml)
-* Web / server : [app.js](https://github.com/bertrandmartel/pusher-client-events/blob/master/web/app.js) 
+* Web : [index.html](https://github.com/bertrandmartel/pusher-client-events/blob/master/web/public/index.html)
+* server : [app.js](https://github.com/bertrandmartel/pusher-client-events/blob/master/web/app.js) 
+
+## Google cloud functions
+
+Sample code for hosting the authorization endpoint as a [Google cloud function](https://cloud.google.com/functions/) 
+
+[index.js](https://github.com/bertrandmartel/pusher-client-events/tree/master/web/index.js)
