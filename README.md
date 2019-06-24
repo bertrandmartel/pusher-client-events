@@ -26,4 +26,4 @@ Change the configuration under the following path :
 
 Sample code for hosting the authorization endpoint as a [Google cloud function](https://cloud.google.com/functions/) 
 
-[index.js](https://github.com/bertrandmartel/pusher-client-events/tree/master/web/index.js)
+[function.js](https://github.com/bertrandmartel/pusher-client-events/tree/master/web/function.js)
